@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}All enrollments{% endblock title %}
+{% block style %}
+  <link rel="stylesheet" href=" {% static 'css/index.css' %} ">
+  <link rel="stylesheet" href=" {% static 'css/courses.css' %} ">
+{% endblock style %}
+{% block content %}
+  <section>
+    <div class="container">
+      <h1 class="title">Liste des inscriptions aux cours</h1>
+      <div class="listcourse">
+        <table class="table table-hover">
+          <body>
+              {% for enrollment in enrollments %}
+              <tr>
+
+                <td>{{enrollment.student.first_name }}</td>
+                <td>{{enrollment.student.last_name}}</td>
+                <td>{{enrollment.course.name}}</td> 
+                <td>{{enrollment.registration_date}}</td>
+           
+                  <td>
+                    <a href="{%url 'EnrollmentDeleteView' enrollment.id %}" class="btn btn-sm btn-danger mt-2">delete</a>
+                    <a href="{%url 'edit_enrollment' enrollment.pk %}" class="btn btn-sm btn-success mt-2">update</a>
+ 
+                  </td>
+              </tr>
+
+              {% empty %}
+         <li>Aucun inscription pour le moment.</li>
+              {%endfor%}
+          </body>
+      </table>
+      </div>
+      <div class="forPagination">
+        {% for i in enrollments.paginator.page_range %}
+          {%  if enrollment.number == i %}
+            <a href="?page={{i}}" class="btn btn-sm btn-primary me-2">{{i}}</a>
+          {%else%}
+            <a href="?page={{i}}" class="btn btn-sm btn-outline-primary me-2">{{i}}</a>
+          {%endif%}
+        {% endfor %}
+     </div>
+     <a href="{% url 'add_enrollment' %}" class="addcoursBtn">ajouter enrollement</a>
+
+    </div>
+
+  </section>
+{% endblock content%} 

@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% extends 'header.html'%}  
+  <h1>Log-in</h1>
+  <p class="text-white" style="font-size: 20;">Veuillez utiliser le formulaire suivant pour se connecter:</p>
+  <form method="POST"  style="background-color: darksalmon; padding: 20px; border-radius: 20px;">
+    <form style="background-color: darksalmon; padding: 20px; border-radius: 20px;">
+    {{form.as_p}}
+    {% csrf_token %}
+  </form>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+  </form>
+  {% endblock %}

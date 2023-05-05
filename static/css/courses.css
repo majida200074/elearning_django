@@ -1,0 +1,39 @@
+table{
+    width: 100%;
+    background-color: #1a025a;
+    color: white;
+}
+tr {
+    height: 60px;
+}
+td{
+    padding: 10px;
+    font-size: 12px;
+}
+table button{
+    color: black;
+    background: white;
+    border: 0;
+    padding: 7px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+table td a {
+    color: white;
+}
+.forPagination{
+    text-align: center;
+    font-size: 16px;
+    margin: 20px 0;
+}
+.forPagination a{
+    color: #2f95da;
+    
+
+}
+.addcoursBtn{
+    background-color: #848687;
+    padding: 10px 20px;
+    color: white;
+    margin: 0 0 20px 0;
+}

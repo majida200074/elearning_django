@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home page{% endblock title %}
+{% block style %}
+  <link rel="stylesheet" href=" {% static 'css/home.css' %} ">
+{% endblock style %}
+{% block content %}
+<main>
+    <section class="heroSection" style="background: url( {% static 'images/heroSection.jpg' %} )">
+        <div class="container">
+            <div class="contenthero">
+                <h1 class="bigTitle">Tableau de bord</h1> 
+                <p>Bienvenu dans votre tableau de bord.</p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content%} 
+</div>

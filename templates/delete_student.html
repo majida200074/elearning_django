@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="text-white">Supprimer l'étudiant {{ student.first_name }} {{ student.last_name }}</h1>
+  <div style="background-color: rgb(110, 118, 188); padding: 20px; border-radius: 20px;">
+  <p>Voulez-vous vraiment supprimer cet étudiant ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-secondary" value="Oui, je veux supprimer cet étudiant">
+  </form>
+  </div>
+{% endblock %}

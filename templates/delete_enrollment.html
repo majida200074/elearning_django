@@ -1,0 +1,14 @@
+<!-- templates/enrollment_delete.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-white">Supprimer l'inscription</h1>
+<div style="background-color: rgb(110, 118, 188); padding: 20px; border-radius: 20px;">
+<p>Voulez-vous vraiment supprimer l'inscription de {{ enrollment.student }} pour le cours {{ enrollment.course }}?</p>
+
+<form method="post" >
+  {% csrf_token %}
+  <button type="submit" class="btn btn-secondary">Supprimer</button>
+  <a href="{% url 'enrollment_list' %}">Annuler</a>
+</form>
+</div>
+{% endblock %}

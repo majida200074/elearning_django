@@ -1,0 +1,10 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="text-white">Ajouter un étudiant</h1>
+  <form method="post" style="background-color: rgb(110, 118, 188); padding: 20px; border-radius: 20px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary">Ajouter</button>
+  </form>
+  {% endblock %}

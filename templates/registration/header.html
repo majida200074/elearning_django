@@ -1,0 +1,9 @@
+<div class = "col-md-3 text-end">
+    {% if request.user.is_authenticated %}
+        {{request.user | upper}}
+    <a href="{%url 'logout' %}"><i class="fa-solid fa-right-form-bracket"></i></a> 
+    {% else %}
+    <button type="button" class="btn btn-outline-success me-2">Connection</button>  
+    <button type="button" class="btn btn-success">Inscription</button> 
+    {%endif%}
+</div>

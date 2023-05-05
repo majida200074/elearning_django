@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}All teachers{% endblock %}
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/courses.css' %}">
+{% endblock %}
+{% block content %}
+  <section>
+    <div class="container">
+      <h1 class="title">Liste des enseignants</h1>
+      <div class="listenseignant">
+        <table class="table table-hover">
+          <tbody>
+            {% for teacher in teachers %}
+            <tr>
+              <td>{{teacher.first_name}}</td>
+              <td>{{teacher.last_name }}</td>
+              <td>{{teacher.email}}</td>
+              <td>
+                <a href="{%url 'teacher_delete' teacher.id %}" class="btn btn-sm btn-danger mt-2" onclick="return confirm('Voulez-vous vraiment supprimer cet enseignant ?')">Supprimer</a>
+                <a href="{%url 'teacher_edit' teacher.pk %}">Modifier</a>  
+              </td>
+            </tr>
+            {% empty %}
+            <li>Aucun enseignant pour le moment.</li>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="forPagination">
+        {% for i in teachers.paginator.page_range %}
+          {% if teacher.number == i %}
+            <a href="?page={{ i }}" class="btn btn-sm btn-primary me-2">{{ i }}</a>
+          {% else %}
+            <a href="?page={{ i }}" class="btn btn-sm btn-outline-primary me-2">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      
+  <a href="/admin/apprentissage1/teacher/add/" class="addcoursBtn">ajouter enseignant</a>
+
+    </div>
+  </section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

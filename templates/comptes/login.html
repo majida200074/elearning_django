@@ -1,0 +1,10 @@
+{% block content %}
+<h2 style="font-size: 20;" class="text-white">utilisez ce formulaire pour vous connecter</h2>
+<form method="post" >
+  <form  style="background-color: darksalmon; padding: 20px; border-radius: 20px;">
+  {% csrf_token %}
+  {{ form.as_p }}
+</form>
+  <p type="submit" value="se connecter"></p>
+  </form>
+{%endblock%}

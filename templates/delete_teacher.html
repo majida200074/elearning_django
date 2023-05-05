@@ -1,0 +1,10 @@
+<!-- templates/supprimer_enseignant.html -->
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="text-white">Supprimer l'enseignant {{ enseignant.nom }} {{ enseignant.prenom }} ?</h1>
+  <form method="post" style="background-color: rgb(110, 118, 188); padding: 20px; border-radius: 20px;">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-secondary" value="Confirmer la suppression">
+    <a href="{% url 'teacher_list' %}">Annuler</a>
+  </form>
+{% endblock %}

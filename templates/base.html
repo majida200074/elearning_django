@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> {% block title %}{% endblock title %} </title>
+  <link rel="stylesheet" href="{% static 'css/generale.css' %}">
+  {% block style %}
+  
+    
+  {% endblock style %}
+</head>
+<body>
+  <header class="header">
+		<div class="container">
+      <nav>
+        <h1 class="logo"><a href="{%url 'home'%}"> <span>E</span>-learning</a></h1>
+        <ul class="main-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="{%url 'course_list'%}">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{%url 'student_list'%}">Students</a>
+          </li>
+  
+          <li class="nav-item">
+              <a class="nav-link text-white" href="{%url 'teacher_list'%}">Teacher</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{%url 'enrollment_list'%}">Enrollement</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{%url 'admin-button'%}">admin</a>
+            </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{%url 'logout'%}">logout</a>
+          </li>
+            
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{%url 'login'%}">login</a>
+          </li>
+          {% endif %}
+          
+            
+  
+            
+        </ul>
+      </nav>
+    </div>
+	</header> 
+  {% block content %}
+
+
+
+
+  {%endblock%}
+  
+</body>
+</html>

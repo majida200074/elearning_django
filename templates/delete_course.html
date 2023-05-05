@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="text-white">Supprimer ce cours</h1>
+  <div style="background-color: rgb(110, 118, 188); padding: 20px; border-radius: 20px;">
+  <p>Voulez-vous vraiment supprimer ce cours  ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-secondary" value="Oui, je veux supprimer ce cours ">
+  </form>
+  </div>
+{% endblock %}

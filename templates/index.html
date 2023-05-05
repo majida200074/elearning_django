@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Web scraping{% endblock title %}
+{% block style %}
+  <link rel="stylesheet" href=" {% static 'css/index.css' %} ">
+  <link rel="stylesheet" href=" {% static 'css/home.css' %} ">
+{% endblock style %}
+{% block content %}
+<main>
+    <section class="heroSection" style="background: url( {% static 'images/heroSection.jpg' %} )">
+        <div class="container">
+            <div class="contenthero">
+                <h1 class="bigTitle">Welcome in our E-learning website</h1> 
+                <p>Find you courses here, all content created by dataCamp</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h1 class="title">Here all courses from dataCamp</h1>
+            <div class="cards">
+                {% for c in page_obj   %}
+            <div class="card">
+                 <div class="content">
+                   <a href="#">
+                     <span class="title">
+                       {{c.title}}
+                     </span>
+                   </a>
+               
+                   <p class="desc">
+                     {{c.description}} {{c.link}}
+                   </p>
+               
+                   <a href="https://www.datacamp.com/{{c.link}}" target="_blank" class="action">
+                     Find out more
+                     <span aria-hidden="true">
+                       →
+                     </span>
+                   </a>
+                 </div>
+            </div>
+            {% endfor %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1" style="color: #0b629c;
+                        font-size: 13px;">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}" style="color: #8ad0ff;
+                        font-size: 13px;">previous</a>
+                    {% endif %}
+            
+                    <span class="current" style="margin: 0 30px; color: black; font-size: 14px;">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}" style="color: #3ba77f;
+                        font-size: 13px;">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}" style="color: #0e754f;
+                        font-size: 13px;">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content%} 
+</div>
